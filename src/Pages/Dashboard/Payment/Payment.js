@@ -2,11 +2,12 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 const Payment = () => {
-    const { data } = useLoaderData();
-    console.log(data);
+    const booking = useLoaderData();
+    const {treatment, price, appointmentDate, slot } = booking;
     return (
         <div>
-            <h3 className="text-3xl">Payment for {data?.treatment}</h3>
+            <h3 className="text-3xl">Payment for {treatment}</h3>
+            <p className="text-xl">Please pay <strong>${price}</strong> for your appointment on {appointmentDate} at {slot}</p>
         </div>
     );
 };
